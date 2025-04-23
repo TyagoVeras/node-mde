@@ -2,6 +2,8 @@
 
 ## [Não publicado]
 
+- Node lançando erro `TypeError: Cannot add property rejectUnauthorized, object is not extensible` #22
+
 ## [0.14.12] / 2025-04-17
 
 - Ambiente de Produção retornando `unable to get local issuer certificate`

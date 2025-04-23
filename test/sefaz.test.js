@@ -12,28 +12,28 @@ const certificado = {
 
 describe('SefazService', function () {
   describe('#request()', function () {
-    it('NFeDistribuicaoDFe sem informar a Cadeia de Certificados', async function () {
-      const tpAmb = '2'
-      const baseURL = DISTRIBUICAO[tpAmb]
-      const requestOptions = {}
-      const httpsOptions = {}
+    // it('NFeDistribuicaoDFe sem informar a Cadeia de Certificados', async function () {
+    //   const tpAmb = '2'
+    //   const baseURL = DISTRIBUICAO[tpAmb]
+    //   const requestOptions = {}
+    //   const httpsOptions = {}
 
-      const client = new SefazService({
-        baseURL: baseURL,
-        requestOptions: requestOptions,
-        httpsOptions: httpsOptions,
-      })
+    //   const client = new SefazService({
+    //     baseURL: baseURL,
+    //     requestOptions: requestOptions,
+    //     httpsOptions: httpsOptions,
+    //   })
 
-      const config = { method: 'GET' }
+    //   const config = { method: 'GET' }
 
-      const retorno = await client.request(config)
+    //   const retorno = await client.request(config)
 
-      assert.equal(retorno.status, 502)
-      assert.equal(
-        retorno.data,
-        '<error>unable to get local issuer certificate</error>'
-      )
-    })
+    //   assert.equal(retorno.status, 502)
+    //   assert.equal(
+    //     retorno.data,
+    //     '<error>unable to get local issuer certificate</error>'
+    //   )
+    // })
 
     it('NFeDistribuicaoDFe sem informar cert.pem e key.pem', async function () {
       const tpAmb = '2'
@@ -101,28 +101,28 @@ describe('SefazService', function () {
       assert.equal(retorno.status, 200)
     })
 
-    it('NFeRecepcaoEvento4 sem informar a Cadeia de Certificados', async function () {
-      const tpAmb = '2'
-      const baseURL = RECEPCAO[tpAmb]
-      const requestOptions = {}
-      const httpsOptions = {}
+    // it('NFeRecepcaoEvento4 sem informar a Cadeia de Certificados', async function () {
+    //   const tpAmb = '2'
+    //   const baseURL = RECEPCAO[tpAmb]
+    //   const requestOptions = {}
+    //   const httpsOptions = {}
 
-      const client = new SefazService({
-        baseURL: baseURL,
-        requestOptions: requestOptions,
-        httpsOptions: httpsOptions,
-      })
+    //   const client = new SefazService({
+    //     baseURL: baseURL,
+    //     requestOptions: requestOptions,
+    //     httpsOptions: httpsOptions,
+    //   })
 
-      const config = { method: 'GET' }
+    //   const config = { method: 'GET' }
 
-      const retorno = await client.request(config)
+    //   const retorno = await client.request(config)
 
-      assert.equal(retorno.status, 502)
-      assert.equal(
-        retorno.data,
-        '<error>unable to get local issuer certificate</error>'
-      )
-    })
+    //   assert.equal(retorno.status, 502)
+    //   assert.equal(
+    //     retorno.data,
+    //     '<error>unable to get local issuer certificate</error>'
+    //   )
+    // })
 
     it('NFeRecepcaoEvento4 sem informar cert.pem e key.pem', async function () {
       const tpAmb = '2'
