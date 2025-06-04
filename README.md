@@ -215,6 +215,40 @@ console.log(consulta)
 // }
 ```
 
+## Distribuição de CT-e
+
+### Construtor
+
+```js
+new DistribuicaoCTe(config)
+```
+
+- `config` `<Object>`
+  - Mesmo formato utilizado em `DistribuicaoDFe` para certificado A1.
+
+#### Exemplo
+
+```js
+const { DistribuicaoCTe } = require('node-mde')
+const fs = require('fs')
+
+const distribuicao = new DistribuicaoCTe({
+  pfx: fs.readFileSync('./certificado.pfx'),
+  passphrase: 'senha',
+  cnpj: '12345678901234',
+  cUFAutor: '41',
+  tpAmb: '2',
+})
+
+const consulta = await distribuicao.consultaUltNSU('000000000000000')
+
+if (consulta.error) {
+  throw new Error(consulta.error)
+}
+
+console.log(consulta)
+```
+
 ## Manifestação do Destinatário
 
 ### Construtor
