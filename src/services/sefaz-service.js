@@ -21,13 +21,15 @@ class Instance {
 
     const httpsAgent = new https.Agent(AgentOptions)
 
+    // Allow custom headers to be merged, especially for SOAPAction
+    const defaultHeaders = {
+      'User-Agent': `node-mde/${VERSION}`,
+      'Content-Type': 'application/soap+xml; charset=utf-8',
+    }
     const requestOptions = Object.assign(
       {
         baseURL: baseURL,
-        headers: {
-          'User-Agent': `node-mde/${VERSION}`,
-          'Content-Type': 'application/soap+xml; charset=utf-8',
-        },
+        headers: Object.assign({}, defaultHeaders, opts.headers || {}),
         httpsAgent: httpsAgent,
         timeout: 60000,
       },
@@ -46,6 +48,14 @@ class Instance {
    */
   async request(config) {
     try {
+      // Merge custom headers for each request, especially SOAPAction
+      if (config.headers) {
+        config.headers = Object.assign(
+          {},
+          this.instance.defaults.headers,
+          config.headers
+        )
+      }
       const response = await this.instance(config)
 
       const { status, data } = response
