@@ -56,9 +56,16 @@ class DistribuicaoMdfeHelper {
    */
   static montarRequest(opts) {
     const schema = DistribuicaoMdfeSchema.montarSchema(opts)
-    const xml = Xml.jsonToXml(schema)
-    const data = Xml.envelopar(xml)
-
+    const xmlBody = Xml.jsonToXml(schema)
+    // Build SOAP header for MDF-e Distribuição DFe
+    const cabecMsg = `<mdfeCabecMsg xmlns="http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeDistribuicaoDFe"><cUF>${opts.cUFAutor}</cUF><versaoDados>1.00</versaoDados></mdfeCabecMsg>`
+    // Custom envelope for MDF-e with header
+    const data =
+      `<?xml version="1.0" encoding="utf-8"?>` +
+      `<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">` +
+      `<soap12:Header>${cabecMsg}</soap12:Header>` +
+      `<soap12:Body>${xmlBody}</soap12:Body>` +
+      `</soap12:Envelope>`
     return data
   }
 
