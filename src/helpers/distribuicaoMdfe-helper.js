@@ -19,13 +19,24 @@ class DistribuicaoMdfeHelper {
       data: data,
     }
 
+    const action =
+      'http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeDistribuicaoDFe/mdfeDistDFeInteresse'
+
+    const requestOptions = {
+      ...(opts.requestOptions || {}),
+      headers: {
+        ...(opts.requestOptions && opts.requestOptions.headers),
+        SOAPAction: action,
+      },
+    }
+
     const client = new SefazService({
       baseURL: baseURL,
       ca: CA,
       cert: opts.cert,
       key: opts.key,
       tpAmb: opts.tpAmb,
-      requestOptions: opts.requestOptions,
+      requestOptions: requestOptions,
       httpsOptions: opts.httpsOptions,
     })
 

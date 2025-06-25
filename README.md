@@ -14,7 +14,7 @@ Essa biblioteca permite consultar a relação das notas fiscais emitidas contra 
 ## Instalação
 
 ```sh
-$ npm i node-mde
+npm i node-mde
 ```
 
 ## Pré-Requisitos
@@ -249,8 +249,6 @@ if (consulta.error) {
 console.log(consulta)
 ```
 
-<<<<<<< HEAD
-=======
 ## Distribuição de MDF-e
 
 ### Construtor
@@ -285,7 +283,6 @@ if (consulta.error) {
 console.log(consulta)
 ```
 
->>>>>>> v80pxt-codex/adapt-project-to-search-cte-using-certificate-a1
 ## Manifestação do Destinatário
 
 ### Construtor
