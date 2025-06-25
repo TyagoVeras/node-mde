@@ -249,6 +249,43 @@ if (consulta.error) {
 console.log(consulta)
 ```
 
+<<<<<<< HEAD
+=======
+## Distribuição de MDF-e
+
+### Construtor
+
+```js
+new DistribuicaoMDFe(config)
+```
+
+- `config` `<Object>`
+  - Mesmo formato utilizado em `DistribuicaoDFe` para certificado A1.
+
+#### Exemplo
+
+```js
+const { DistribuicaoMDFe } = require('node-mde')
+const fs = require('fs')
+
+const distribuicao = new DistribuicaoMDFe({
+  pfx: fs.readFileSync('./certificado.pfx'),
+  passphrase: 'senha',
+  cnpj: '12345678901234',
+  cUFAutor: '41',
+  tpAmb: '2',
+})
+
+const consulta = await distribuicao.consultaUltNSU('000000000000000')
+
+if (consulta.error) {
+  throw new Error(consulta.error)
+}
+
+console.log(consulta)
+```
+
+>>>>>>> v80pxt-codex/adapt-project-to-search-cte-using-certificate-a1
 ## Manifestação do Destinatário
 
 ### Construtor
