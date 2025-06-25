@@ -22,11 +22,15 @@ class DistribuicaoMdfeHelper {
     const action =
       'http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeDistribuicaoDFe/mdfeDistDFeInteresse'
 
+    // For SOAP 1.2, action must be in Content-Type, not as SOAPAction header
+    const contentType = `application/soap+xml; charset=utf-8; action=\"${action}\"`
+
     const requestOptions = {
       ...(opts.requestOptions || {}),
       headers: {
         ...(opts.requestOptions && opts.requestOptions.headers),
-        SOAPAction: action,
+        'Content-Type': contentType,
+        // Remove SOAPAction header for SOAP 1.2
       },
     }
 
