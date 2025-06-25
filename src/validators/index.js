@@ -3,6 +3,8 @@
 const AmbienteValidator = require('./ambiente-validator')
 const CertificadoValidator = require('./certificado-validator')
 const ChaveValidator = require('./chave-validator')
+const ChaveCteValidator = require('./chave-cte-validator')
+const ChaveMdfeValidator = require('./chave-mdfe-validator')
 const CnpjCpfValidator = require('./cnpjCpf-validator')
 const EventoValidator = require('./evento-validator')
 const LoteValidator = require('./lote-validator')
@@ -14,6 +16,8 @@ const validator = Object.freeze({
   AmbienteValidator,
   CertificadoValidator,
   ChaveValidator,
+  ChaveCteValidator,
+  ChaveMdfeValidator,
   CnpjCpfValidator,
   EventoValidator,
   LoteValidator,
