@@ -1,10 +1,11 @@
 /**
  * URL Serviço MDF-e DistribuicaoDFe
- * Pagina Principal > Serviços > Relação de Serviços Web > Ambiente Nacional - (AN)
+ * Baseado na documentação oficial SEFAZ SVRS (versão 1.00)
+ * Fonte: https://dfe-portal.svrs.rs.gov.br/MDFE/Servicos
  */
 const DISTRIBUICAO_MDFE = {
-  1: 'https://mdfe.svrs.rs.gov.br/ws/MDFeDistribuicaoDFe/MDFeDistribuicaoDFe.asmx?wsdl',
-  2: 'https://homologacao.svrs.rs.gov.br/ws/MDFeDistribuicaoDFe/MDFeDistribuicaoDFe.asmx?wsdl',
+  1: 'https://mdfe.svrs.rs.gov.br/ws/MDFeDistribuicaoDFe/MDFeDistribuicaoDFe.asmx',
+  2: 'https://mdfe-homologacao.svrs.rs.gov.br/ws/MDFeDistribuicaoDFe/MDFeDistribuicaoDFe.asmx',
 }
 
 module.exports = { DISTRIBUICAO_MDFE }

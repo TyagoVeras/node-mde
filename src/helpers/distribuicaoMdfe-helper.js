@@ -62,13 +62,14 @@ class DistribuicaoMdfeHelper {
     const versaoDados =
       schema.mdfeDistDFeInteresse.mdfeDadosMsg.distDFeInt['@_versao'] || '1.00'
     const cabecMsg = `<mdfeCabecMsg xmlns="http://www.portalfiscal.inf.br/mdfe/wsdl/MDFeDistribuicaoDFe"><cUF>${opts.cUFAutor}</cUF><versaoDados>${versaoDados}</versaoDados></mdfeCabecMsg>`
-    // Custom envelope for MDF-e with header
+
+    // Corrigindo estrutura SOAP para padrão SEFAZ - usando soap:Envelope ao invés de soap12:Envelope
     const data =
       `<?xml version="1.0" encoding="utf-8"?>` +
-      `<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">` +
-      `<soap12:Header>${cabecMsg}</soap12:Header>` +
-      `<soap12:Body>${xmlBody}</soap12:Body>` +
-      `</soap12:Envelope>`
+      `<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">` +
+      `<soap:Header>${cabecMsg}</soap:Header>` +
+      `<soap:Body>${xmlBody}</soap:Body>` +
+      `</soap:Envelope>`
     return data
   }
 
